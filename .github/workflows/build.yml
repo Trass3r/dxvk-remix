@@ -2,15 +2,14 @@ name: Build
 
 on:
   push:
-    branches: [ main, 'release/**' ]
-  pull_request:
-    branches: [ main, 'release/**' ]
+  workflow_dispatch:
 
 jobs:
   build-windows:
     runs-on: windows-2022
 
     strategy:
+      fail-fast: false
       matrix:
         include:
           - build-flavour: debug
