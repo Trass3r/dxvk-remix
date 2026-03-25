@@ -660,6 +660,9 @@ namespace dxvk {
 
     if (m_image->getHash() != 0) {
       // Already setup.
+      const auto& buffer = source->m_buffers[0];
+      auto newhash = XXH3_64bits(buffer->mapPtr(0), buffer->info().size);
+      Logger::warn(str::format("D3D9: SetupForRtxFrom called for already set up texture: ", std::hex, m_image->getHash(), "->", newhash, " ", m_desc.Format));
       return;
     }
 
