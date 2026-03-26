@@ -76,13 +76,13 @@ enable_rtxio = get_option('enable_rtxio')
 external_dll_paths = []
 
 if dxvk_is_msvc
-  if get_option('buildtype') == 'release'
-    add_global_arguments('/Zi', language : 'cpp')
-    add_global_arguments('/FS', language : 'cpp')
+  #if get_option('buildtype') == 'release'
+    add_global_arguments('/Z7', language : 'cpp')
+    #add_global_arguments('/FS', language : 'cpp')
     add_global_link_arguments('/DEBUG', language : 'cpp')
     add_global_link_arguments('/OPT:REF', language : 'cpp')
     add_global_link_arguments('/OPT:ICF', language : 'cpp')
-  endif
+  #endif
 endif
 
 if enable_rtxio == true

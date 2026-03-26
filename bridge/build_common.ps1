@@ -92,7 +92,7 @@ function PerformBuild {
 	$BuildDir = [IO.Path]::Combine($CurrentDir, $BuildSubDir)
 
 	Push-Location $CurrentDir
-		$mesonArgs = "setup --buildtype `"$BuildFlavour`" --backend `"$Backend`" `"$BuildSubDir`" --debug"
+		$mesonArgs = "setup --buildtype `"$BuildFlavour`" --backend `"$Backend`" -Db_pch=false `"$BuildSubDir`" --debug"
 		if ( $BuildTarget ) {
 	            $mesonArgs += " -Denable_tests=`"$true`""
 	        }

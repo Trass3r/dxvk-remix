@@ -97,7 +97,7 @@ function PerformBuild {
 	$BuildDir = [IO.Path]::Combine($CurrentDir, $BuildSubDir)
 
 	Push-Location $CurrentDir
-		$mesonArgs = "setup --buildtype `"$BuildFlavour`" --backend `"$Backend`" -Denable_tracy=`"$EnableTracy`" `"$BuildSubDir`""
+		$mesonArgs = "setup --buildtype `"$BuildFlavour`" --backend `"$Backend`" -Denable_tracy=`"$EnableTracy`" -Db_pch=false `"$BuildSubDir`""
 		if ( $ShadersOnly ) {
 			$mesonArgs = "$mesonArgs -Ddownload_apics=False"
 		}
