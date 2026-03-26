@@ -33,6 +33,15 @@ jobs:
     - name: Setup Meson
       run: pip install meson==1.1.0
 
+    - uses: Trass3r/setup-cpp@master
+    - uses: hendrikmuhs/ccache-action@v1.2
+      with:
+        key: ${{ matrix.build-flavour }}
+        variant: sccache
+        max-size: 5G
+        evict-old-files: job
+        verbose: 2
+
     - name: Build
       shell: pwsh
       run: |
