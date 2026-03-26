@@ -22,6 +22,7 @@
 
 #include "rtx_option.h"
 #include "rtx_mod_manager.h"
+#include "rtx_option_manager.h"
 #include "../util/util_env.h"
 #include "../util/log/log.h"
 
